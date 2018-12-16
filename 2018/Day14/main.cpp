@@ -9,7 +9,7 @@ void tick(std::string& v, int& elf1, int& elf2) {
 }
 
 std::string part1(std::string& v, int& elf1, int& elf2, int input) {
-	while (v.size() < input + 10) {
+	while (v.size() < (size_t)input + 10) {
 		tick(v, elf1, elf2);
 	}
 

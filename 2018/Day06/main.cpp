@@ -47,7 +47,7 @@ int main() {
 			int distToAll = 0;
 
 			// get the closest point
-			for (int k = 0; k < V.size(); ++ k) {
+			for (size_t k = 0; k < V.size(); ++ k) {
 				int dist = Manhattan(j, i, V[k].x, V[k].y);
 
 				distToAll += dist;
@@ -77,7 +77,7 @@ int main() {
 
 	int max = 0;
 
-	for (int i = 0; i < V.size(); ++ i) {
+	for (size_t i = 0; i < V.size(); ++ i) {
 		if (!V[i].isInfinite) {
 			max = std::max(max, V[i].currSize);
 		}

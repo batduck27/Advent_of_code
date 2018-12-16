@@ -86,7 +86,7 @@ int part2(std::vector<char> roots, std::vector<bool> vis) {
 
 		res += timePassed;
 
-		for (int i = 0; i < tmp.size(); ++ i) {
+		for (size_t i = 0; i < tmp.size(); ++ i) {
 			tmp[i].first -= timePassed;
 		
 			if (tmp[i].first == 0) {

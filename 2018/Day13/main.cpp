@@ -91,8 +91,8 @@ int main() {
 		V.push_back(str);
 	}
 
-	for (int y = 0; y < V.size(); ++ y) {
-		for (int x = 0; x < V[y].size(); ++ x) {
+	for (size_t y = 0; y < V.size(); ++ y) {
+		for (size_t x = 0; x < V[y].size(); ++ x) {
 			switch (V[y][x]) {
 				case '>':
 					M[std::make_pair(y, x)] = Cart(RIGHT);

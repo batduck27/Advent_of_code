@@ -13,7 +13,7 @@ std::map<int, std::vector<int>> M;
 
 int solvePart1() {
 	int maxSleep = 0, maxId = 0;
-	int maxMinute = 0, maxOverlaps = 0;
+	int maxMinute = 0;
 
 	for (const auto& x : M) {
 		int minutesSlept = 0;
@@ -32,7 +32,6 @@ int solvePart1() {
 			maxSleep = minutesSlept;
 			maxId = x.first;
 			maxMinute = minute;
-			maxOverlaps = overlaps;
 		}
 	}
 

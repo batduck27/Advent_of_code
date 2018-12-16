@@ -17,7 +17,6 @@ int solvePart1() {
 
 int solvePart2() {
 	int currFreq = 0;
-	int ind = 0;
 	std::set<int> S;
 
 	for (size_t i = 0; i < V.size(); i = ((i == V.size() - 1) ? 0 : i + 1)) {

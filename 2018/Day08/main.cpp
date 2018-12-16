@@ -57,7 +57,7 @@ int main() {
 	int sm = 0;
 	int ind = 0;
 
-	while (ind < V.size()) {
+	while ((size_t)ind < V.size()) {
 		sm += part2(ind);
 	}
 

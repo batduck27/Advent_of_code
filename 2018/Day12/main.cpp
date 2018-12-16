@@ -14,9 +14,9 @@ std::map <std::string, int> seen;
 int potSum(std::string str, int firstPot) {
 	int s = 0;
 
-	for (int i = 0; i < str.size(); ++ i) {
+	for (size_t i = 0; i < str.size(); ++ i) {
 		if (str[i] == '#') {
-			s += i + firstPot;
+			s += (int)i + firstPot;
 		}
 	}
 
@@ -53,7 +53,7 @@ int main() {
 
 		tmpState = state;
 
-		for (int i = 0; i < state.size() - WSIZE; ++ i) {
+		for (size_t i = 0; i < state.size() - WSIZE; ++ i) {
 			std::string window = state.substr(i, WSIZE);
 			tmpState[i + WSIZE / 2] = (M.find(window) != M.end()) ? M[window] : '.';
 		}		

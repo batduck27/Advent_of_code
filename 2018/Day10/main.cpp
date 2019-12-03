@@ -12,68 +12,68 @@
 #define LETTERSIZE (int)(10)
 
 typedef struct {  
-	int x, y, vx, vy;
+    int x, y, vx, vy;
 } Point;
 
 std::vector<Point> V;
 
 void tick(int& minY, int& minX, int& maxY, int& maxX, int factor = 1) {
-	minX = minY = INF;
-	maxX = maxY = -INF;
-	
-	for (auto& p : V) {
-		p.x += factor * p.vx;
-		p.y += factor * p.vy;
+    minX = minY = INF;
+    maxX = maxY = -INF;
+    
+    for (auto& p : V) {
+        p.x += factor * p.vx;
+        p.y += factor * p.vy;
 
-		minY = std::min(minY, p.y);
-		maxY = std::max(maxY, p.y);
-		minX = std::min(minX, p.x);
-		maxX = std::max(maxX, p.x);
-	}
+        minY = std::min(minY, p.y);
+        maxY = std::max(maxY, p.y);
+        minX = std::min(minX, p.x);
+        maxX = std::max(maxX, p.x);
+    }
 }
 
 int main() {
-	std::ifstream fin("data.in");
-	std::string str;
+    std::ifstream fin("data.in");
+    std::string str;
 
-	while (std::getline(fin, str)) {
-		Point p;
-		sscanf(str.c_str(), "position=< %d,  %d> velocity=<%d, %d>", &p.x, &p.y, &p.vx, &p.vy);
-		V.push_back(p);
-	}
+    while (std::getline(fin, str)) {
+        Point p;
+        sscanf(str.c_str(), "position=< %d,  %d> velocity=<%d, %d>", &p.x, &p.y, &p.vx, &p.vy);
+        V.push_back(p);
+    }
 
-	int steps = abs(V[0].y/ V[0].vy);
-	int minX, minY, maxX, maxY;
+    int steps = abs(V[0].y/ V[0].vy);
+    int minX, minY, maxX, maxY;
 
-	tick(minY, minX, maxY, maxX, steps);
+    tick(minY, minX, maxY, maxX, steps);
 
-	for (; abs(maxY - minY) > LETTERSIZE; ++ steps) {
-		tick(minY, minX, maxY, maxX);
-	}	
+    for (; abs(maxY - minY) > LETTERSIZE; ++ steps) {
+        tick(minY, minX, maxY, maxX);
+    }   
 
-	std::set<std::pair<int, int>> S;
+    std::set<std::pair<int, int>> S;
 
-	for (const auto& p : V) {
-		S.insert(std::make_pair(p.x, p.y));
-	}
+    for (const auto& p : V) {
+        S.insert(std::make_pair(p.x, p.y));
+    }
 
-	std::cout << "The answer for part 1 is: " << "\n\n";
+    std::cout << "The answer for part 1 is: " << "\n\n";
 
-	for (int i = minY; i <= maxY; ++ i) {
-		for (int j = minX; j <= maxX; ++ j) {
-			if (S.find(std::make_pair(j, i)) != S.end()) {
-				std::cout << "#";
-			} else {
-				std::cout << ".";
-			}
-		}
+    for (int i = minY; i <= maxY; ++ i) {
+        for (int j = minX; j <= maxX; ++ j) {
+            if (S.find(std::make_pair(j, i)) != S.end()) {
+                std::cout << "#";
+            } else {
+                std::cout << ".";
+            }
+        }
 
-		std::cout << "\n";
-	}
+        std::cout << "\n";
+    }
 
-	std::cout << "\nThe answer for part 2 is: " << steps << "\n";
+    std::cout << "\nThe answer for part 2 is: " << steps << "\n";
 
-	fin.close();
+    fin.close();
 
-	return 0;
+    return 0;
 }

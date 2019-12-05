@@ -9,6 +9,7 @@ int main() {
     fin >> a;
     fin.ignore();
     fin >> b;
+    fin.close();
 
     for (int i = a; i <= b; ++ i) {
         bool cond1 = false; // matching adjacent digits condition

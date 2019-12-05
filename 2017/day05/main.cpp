@@ -5,44 +5,46 @@
 
 void read(std::istream& fin, std::vector<int>& V)
 {
-	int tmp;
+    int tmp;
 
-	while (fin >> tmp)
-		V.push_back(tmp);
+    while (fin >> tmp) {
+        V.push_back(tmp);
+    }
 }
 
 int countSteps(std::vector<int> V, bool isTask2)
 {
-	int ind = 0;
-	int steps = 0;
+    int ind = 0;
+    int steps = 0;
 
-	while (ind >= 0 && ind < V.size()) {
-		int indCopy = ind;
+    while (ind >= 0 && ind < (int)V.size()) {
+        int indCopy = ind;
 
-		ind += V[indCopy];
+        ind += V[indCopy];
 
-		if (isTask2 == true && V[indCopy] > 2)
-			V[indCopy] --;
-		else
-			V[indCopy] ++;
+        if (isTask2 == true && V[indCopy] > 2) {
+            V[indCopy] --;
+        } else {
+            V[indCopy] ++;
+        }
 
-		steps ++;
-	}
+        steps ++;
+    }
 
-	return steps;
+    return steps;
 }
 
 int main()
 {
-	std::ifstream fin("data.in");
-	std::vector<int> V;
+    std::ifstream fin("data.in");
+    std::vector<int> V;
 
-	read(fin, V);
-	
-	std::cout << "The answer for part1 is: " << countSteps(V, false) << "\n";
-	std::cout << "The answer for part2 is: " << countSteps(V, true) << "\n";
+    read(fin, V);
+    
+    std::cout << "The answer for part1 is: " << countSteps(V, false) << "\n";
+    std::cout << "The answer for part2 is: " << countSteps(V, true) << "\n";
 
-	fin.close();
+    fin.close();
 
-	return 0;
+    return 0;
 }

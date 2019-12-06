@@ -24,8 +24,8 @@ static std::vector<std::string> tokenize(const std::string str) {
 }
 
 static int Manhattan(II coord1, II coord2) {
-    auto [y1, x1] = coord1;
-    auto [y2, x2] = coord2;
+    const auto [y1, x1] = coord1;
+    const auto [y2, x2] = coord2;
 
     return abs(x1 - x2) + abs(y1 - y2);
 }

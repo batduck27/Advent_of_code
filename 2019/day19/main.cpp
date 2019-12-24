@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <queue>
 
 enum OPCODE {
@@ -23,7 +23,7 @@ enum PARAM_MODE {
     RELATIVE = 2,
 };
 
-static const std::map<enum OPCODE, int> opSizes{
+static const std::unordered_map<enum OPCODE, int> opSizes{
     { ADD,  4 },
     { MUL,  4 },
     { IN,   2 },
@@ -45,8 +45,8 @@ typedef struct Instruction {
 class IntCodeComputer {
 private:
     std::queue<long long> input;
-    std::map<long long, long long> v;
-    std::map<long long, long long> copyV;
+    std::unordered_map<long long, long long> v;
+    std::unordered_map<long long, long long> copyV;
     long long ip; // instruction pointer
     long long diagCode;
     long long relativeBase;
@@ -69,7 +69,7 @@ public:
     IntCodeComputer() : input(), v(), copyV(), ip(), diagCode(), relativeBase() {
     }
 
-    IntCodeComputer(std::map<long long, long long> v)
+    IntCodeComputer(std::unordered_map<long long, long long> v)
         : input(), v(v), copyV(v), ip(), diagCode(), relativeBase() {
     }
 
@@ -123,7 +123,7 @@ int solvePart2(IntCodeComputer& computer, int size) {
 
 int main() {
     std::ifstream fin("data.in");
-    std::map<long long, long long> v;
+    std::unordered_map<long long, long long> v;
     long long x, i = 0;
 
     while (fin >> x) {

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <queue>
 #include <deque>
 
@@ -40,7 +40,7 @@ enum PARAM_MODE {
     RELATIVE = 2,
 };
 
-static const std::map<enum OPCODE, int> opSizes{
+static const std::unordered_map<enum OPCODE, int> opSizes{
     { ADD,  4 },
     { MUL,  4 },
     { IN,   2 },
@@ -65,8 +65,8 @@ class ArcadeMachine {
 private:
     std::queue<long long> input;
     std::deque<long long> output;
-    std::map<long long, long long> v;
-    std::map<long long, long long> copyV;
+    std::unordered_map<long long, long long> v;
+    std::unordered_map<long long, long long> copyV;
     long long ip; // instruction pointer
     long long relativeBase;
     long long lastScore;
@@ -96,7 +96,7 @@ public:
 
     }
 
-    ArcadeMachine(std::map<long long, long long> v)
+    ArcadeMachine(std::unordered_map<long long, long long> v)
         : input(), output(), v(v), copyV(v), ip(), relativeBase(), ballX(), paddleX(), blocksCnt()
     {
 
@@ -110,7 +110,7 @@ public:
 
 int main() {
     std::ifstream fin("data.in");
-    std::map<long long, long long> v;
+    std::unordered_map<long long, long long> v;
     long long x, i = 0;
 
     while (fin >> x) {

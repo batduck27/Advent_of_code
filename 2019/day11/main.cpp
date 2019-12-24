@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <unordered_map>
 #include <map>
 #include <queue>
 #include <algorithm>
@@ -40,7 +41,7 @@ enum PARAM_MODE {
     RELATIVE = 2,
 };
 
-static const std::map<enum OPCODE, int> opSizes{
+static const std::unordered_map<enum OPCODE, int> opSizes{
     { ADD,  4 },
     { MUL,  4 },
     { IN,   2 },
@@ -62,8 +63,8 @@ typedef struct Instruction {
 class PaintingRobot {
 private:
     std::queue<long long> input;
-    std::map<long long, long long> v;
-    std::map<long long, long long> copyV;
+    std::unordered_map<long long, long long> v;
+    std::unordered_map<long long, long long> copyV;
     long long ip; // instruction pointer
     long long relativeBase;
 
@@ -93,7 +94,7 @@ public:
 
     }
 
-    PaintingRobot(std::map<long long, long long> v)
+    PaintingRobot(std::unordered_map<long long, long long> v)
         : input(), v(v), copyV(v), ip(), relativeBase(), dir(UP), x(), y(), outputCnt()
     {
 
@@ -130,7 +131,7 @@ void printRegistrationIdentifier() {
 
 int main() {
     std::ifstream fin("data.in");
-    std::map<long long, long long> v;
+    std::unordered_map<long long, long long> v;
     long long x, i = 0;
 
     while (fin >> x) {

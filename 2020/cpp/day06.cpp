@@ -4,7 +4,7 @@
 #include <map>
 
 int main() {
-    std::ifstream fin("data.in");
+    std::ifstream fin("../input/day06.in");
     long long sol1 = 0, sol2 = 0, x;
     std::string str;
 

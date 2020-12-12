@@ -6,7 +6,7 @@ fn get_input(filename: &str) -> Result<Vec<String>, Error> {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!("\n==================================== Day 04 ====================================\n");
+    println!("\n==================================== Day 05 ====================================\n");
 
     let input : Vec<String> = match get_input("input/day05.in") {
         Ok(content) => content,

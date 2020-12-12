@@ -77,7 +77,7 @@ fn solve_part2(graph: Graph) -> usize {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!("\n==================================== Day 02 ====================================\n");
+    println!("\n==================================== Day 07 ====================================\n");
 
     let input : Vec<String> = match get_input("input/day07.in") {
         Ok(content) => content,
